@@ -9,10 +9,12 @@ var Goodguy = function Goodguy() {
   this.health = 300;
 
   this.hit = function (num) {
+
     var hitPoints = num;
     return this.health = this.health - hitPoints;
   };
 };
+
 exports["default"] = Goodguy;
 module.exports = exports["default"];
 

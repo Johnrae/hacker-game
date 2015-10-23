@@ -1,15 +1,20 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var Badguy = function Badguy() {
 
   this.health = 300;
 
   this.hit = function (num) {
-    var hitPoints = num;
-    return this.health = this.health - hitPoints;
+    return this.health = this.health - num;
   };
 };
+
+exports["default"] = Badguy;
+module.exports = exports["default"];
 
 },{}],2:[function(require,module,exports){
 "use strict";
@@ -22,10 +27,12 @@ var Goodguy = function Goodguy() {
   this.health = 300;
 
   this.hit = function (num) {
+
     var hitPoints = num;
     return this.health = this.health - hitPoints;
   };
 };
+
 exports["default"] = Goodguy;
 module.exports = exports["default"];
 
@@ -56,43 +63,51 @@ var _badguy2 = _interopRequireDefault(_badguy);
 
 // Good Guy Instance
 var player = new _goodguy2['default']();
+console.log(player);
 
 // Bad Guy Instance
-var Hacker = new _badguy2['default']();
+var hacker = new _badguy2['default']();
+console.log(hacker);
 
 // DOM Nodes Selected
 var ggHealth = (0, _jquery2['default'])('.ggHealth');
 var bgHealth = (0, _jquery2['default'])('.bgHealth');
 
-var ggAttack = (0, _jquery2['default'])('.ggAttack');
-
 // Show current (default) health
-ggHealth.text(mario.health);
-bgHealth.text(bowser.health);
+ggHealth.text(player.health);
+bgHealth.text(hacker.health);
+
+// setInterval(function(){
+//   player.hit()
+// }),500);
 
 // Setting up ON Events
-ggAttack.on('click', function () {
+(0, _jquery2['default'])('#form').on('submit', function (e) {
 
-  // Generate a random amount of hit points
-  // Then attack!!!
-  var num = _underscore2['default'].random(0, 25);
-  player.hit(num);
+  //stop page reload
+  e.preventDefault();
 
-  if (hacker.health <= 0) {
-    bgHealth.text('Defeated');
-    alert('BURNED');
-  } else {
-    bgHealth.text(hacker.health);
-    mario.hit(10);
-    ggHealth.css('color', 'red');
-    ggHealth.text(mario.health);
-    setTimeout(function () {
-      ggHealth.css('color', 'black');
-    }, 1000);
-  }
+  // get string from input
+  var string = (0, _jquery2['default'])('#hackbox').val();
 
-  console.log(bowser);
+  //hit hacker with lenght of string
+  hacker.hit(string.length);
+
+  //clears input
+  this.reset();
 });
+
+// if (hacker.health <= 0) {
+//   bgHealth.text('Defeated');
+//   alert('BURNED')
+// } else {
+//   bgHealth.text(hacker.health);
+//   player.hit(10);
+//   ggHealth.css('color', 'red');
+//   ggHealth.text(player.health);
+//   setTimeout( function () {
+//     ggHealth.css('color', 'black');
+//   }, 1000);
 
 },{"./badguy":1,"./goodguy":2,"jquery":4,"moment":5,"underscore":6}],4:[function(require,module,exports){
 /*!
