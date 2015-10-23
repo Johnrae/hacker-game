@@ -2,18 +2,15 @@ import $ from 'jquery';
 import _ from 'underscore';
 import moment from 'moment';
 
-import $ from 'jquery';
-import _ from 'underscore';
-
 import GoodGuy from './goodguy';
 import BadGuy from './badguy';
 
 
 // Good Guy Instance
-let mario = new GoodGuy();
+let player = new GoodGuy();
 
 // Bad Guy Instance
-let bowser = new BadGuy();
+let Hacker = new BadGuy();
 
 
 // DOM Nodes Selected
@@ -33,14 +30,13 @@ ggAttack.on('click', function () {
   // Generate a random amount of hit points
   // Then attack!!!
   let num = _.random(0, 25);
-  bowser.hit(num);
+  hacker.hit(num);
 
   if (hacker.health <= 0) {
     bgHealth.text('Defeated');
-    alert('Mario Wins!!')
+    alert('BURNED')
   } else {
     bgHealth.text(hacker.health);
-    alert('Bowser Fights Back!!!');
     mario.hit(10);
     ggHealth.css('color', 'red');
     ggHealth.text(mario.health);
