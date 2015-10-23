@@ -4,12 +4,15 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var Badguy = function Badguy() {
+var Badguy = function Badguy(obj) {
+
+  obj = obj || {};
 
   this.health = 300;
 
   this.hit = function (num) {
-    return this.health = this.health - num;
+    var hitpoints = num || 5;
+    return this.health = this.health - hitpoints;
   };
 };
 
@@ -22,13 +25,15 @@ module.exports = exports["default"];
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var Goodguy = function Goodguy() {
+var Goodguy = function Goodguy(obj) {
+
+  obj = obj || {};
 
   this.health = 300;
 
   this.hit = function (num) {
 
-    var hitPoints = num;
+    var hitPoints = num || 5;
     return this.health = this.health - hitPoints;
   };
 };
@@ -77,9 +82,11 @@ var bgHealth = (0, _jquery2['default'])('.bgHealth');
 ggHealth.text(player.health);
 bgHealth.text(hacker.health);
 
-// setInterval(function(){
-//   player.hit()
-// }),500);
+var tenner = function tenner() {
+  player.hit(10);
+};
+
+tenner();
 
 // Setting up ON Events
 (0, _jquery2['default'])('#form').on('submit', function (e) {

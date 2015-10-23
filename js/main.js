@@ -7,11 +7,11 @@ import BadGuy from './badguy';
 
 
 // Good Guy Instance
-let player = new Goodguy();
+var player = new Goodguy();
 console.log(player);
 
 // Bad Guy Instance
-let hacker = new BadGuy();
+var hacker = new BadGuy();
 console.log(hacker);
 
 // DOM Nodes Selected
@@ -23,9 +23,10 @@ let bgHealth = $('.bgHealth');
 ggHealth.text(player.health);
 bgHealth.text(hacker.health);
 
-// setInterval(function(){
-//   player.hit()
-// }),500);
+let tenner = function(){player.hit(10)};
+
+tenner();
+
 
 // Setting up ON Events
 $('#form').on('submit', function (e) {

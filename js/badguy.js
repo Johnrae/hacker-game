@@ -1,9 +1,12 @@
-let Badguy = function (){
+let Badguy = function (obj){
+
+  obj = obj || {};
 
   this.health = 300;
 
   this.hit = function(num){
-    return this.health = this.health - num;
+    let hitpoints = num || 5;
+    return this.health = this.health - hitpoints;
   }
 };
 
