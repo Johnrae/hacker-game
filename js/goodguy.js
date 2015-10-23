@@ -4,9 +4,8 @@ let Goodguy = function (){
 
   this.hit = function(num){
     let hitPoints = num;
-    retun this.health = this.health - hitPoints;
+    return this.health = this.health - hitPoints;
+
   }
-
-  
-
-}
+};
+export default Goodguy;

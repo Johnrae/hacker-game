@@ -30,7 +30,7 @@ ggAttack.on('click', function () {
   // Generate a random amount of hit points
   // Then attack!!!
   let num = _.random(0, 25);
-  hacker.hit(num);
+  player.hit(num);
 
   if (hacker.health <= 0) {
     bgHealth.text('Defeated');
