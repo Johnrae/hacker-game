@@ -80,16 +80,6 @@ var bgHealth = (0, _jquery2['default'])('.bgHealth');
 ggHealth.text(player.health);
 bgHealth.text(hacker.health);
 
-alert('Youre being hacked! Start mashing those keys bro.');
-setInterval(function () {
-  player.hit(_underscore2['default'].random(10, 25));
-
-  if (player.health <= 0) {
-    ggHealth.text('Fucked');
-  } else {
-    ggHealth.text(player.health);
-  }
-}, 1000);
 // Setting up ON Events
 (0, _jquery2['default'])('#form').on('submit', function (e) {
 
@@ -105,8 +95,8 @@ setInterval(function () {
   (0, _jquery2['default'])('bgHealth').append(hacker.health);
 
   if (hacker.health <= 0) {
-    bgHealth.text('Defeated');
-    alert('BURNED');
+    bgHealth.text('0');
+    alert('You got them, for now...');
   } else {
     bgHealth.text(hacker.health);
   }
@@ -114,6 +104,18 @@ setInterval(function () {
   //clears input
   this.reset();
 });
+
+alert("You're being hacked! Better start mashing those keys dude, or youre gonna be TOAST!");
+
+setInterval(function () {
+  player.hit(_underscore2['default'].random(10, 25));
+  ggHealth.text(player.health);
+}, 1000);
+
+if (player.health <= 0 && hacker.health >= 0) {
+  ggHealth.text('Fucked');
+  alert('YOU LOSE SUCKER');
+}
 
 },{"./badguy":1,"./goodguy":2,"jquery":4,"moment":5,"underscore":6}],4:[function(require,module,exports){
 /*!

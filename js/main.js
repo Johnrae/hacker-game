@@ -21,16 +21,8 @@ let bgHealth = $('.bgHealth');
 ggHealth.text(player.health);
 bgHealth.text(hacker.health);
 
-alert('Youre being hacked! Start mashing those keys bro.')
-    setInterval(function(){
-      player.hit(_.random(10,25));
 
-      if (player.health <= 0){
-        ggHealth.text('Fucked');
-      } else {
-        ggHealth.text(player.health);
-      }
-    },1000);
+
 // Setting up ON Events
 $('#form').on('submit', function (e) {
 
@@ -46,8 +38,8 @@ $('#form').on('submit', function (e) {
   $('bgHealth').append(hacker.health);
 
   if (hacker.health <= 0) {
-    bgHealth.text('Defeated');
-    alert('BURNED');
+    bgHealth.text('0');
+    alert('You got them, for now...');
   } else {
     bgHealth.text(hacker.health);
   }
@@ -58,4 +50,15 @@ $('#form').on('submit', function (e) {
 
   });
 
+alert("You're being hacked! Better start mashing those keys dude, or youre gonna be TOAST!");
 
+    setInterval(function(){
+      player.hit(_.random(10,25));
+      ggHealth.text(player.health);
+
+    },1000);
+   
+    if (player.health <= 0 && hacker.health >= 0){
+     ggHealth.text('Fucked');
+     alert('YOU LOSE SUCKER')
+   } 
