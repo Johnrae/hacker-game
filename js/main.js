@@ -7,12 +7,10 @@ import BadGuy from './badguy';
 
 
 // Good Guy Instance
-var player = new Goodguy();
-console.log(player);
+let player = new Goodguy();
 
 // Bad Guy Instance
-var hacker = new BadGuy();
-console.log(hacker);
+let hacker = new BadGuy();
 
 // DOM Nodes Selected
 let ggHealth = $('.ggHealth');
@@ -23,16 +21,12 @@ let bgHealth = $('.bgHealth');
 ggHealth.text(player.health);
 bgHealth.text(hacker.health);
 
-let tenner = function(){player.hit(10)};
-
-tenner();
-
 
 // Setting up ON Events
 $('#form').on('submit', function (e) {
 
   //stop page reload
-  e.preventDefault();
+  // e.preventDefault();
 
   // get string from input
   var string = $('#hackbox').val();
@@ -40,14 +34,18 @@ $('#form').on('submit', function (e) {
   //hit hacker with lenght of string
   hacker.hit(string.length);
 
+  $('bgHealth').append(hacker.health);
+
+  if (hacker.health <= 0) {
+    bgHealth.text('Defeated');
+    alert('BURNED');}
+
   //clears input
   this.reset();
 
   });
 
-  // if (hacker.health <= 0) {
-  //   bgHealth.text('Defeated');
-  //   alert('BURNED')
+
   // } else {
   //   bgHealth.text(hacker.health);
   //   player.hit(10);

@@ -68,11 +68,9 @@ var _badguy2 = _interopRequireDefault(_badguy);
 
 // Good Guy Instance
 var player = new _goodguy2['default']();
-console.log(player);
 
 // Bad Guy Instance
 var hacker = new _badguy2['default']();
-console.log(hacker);
 
 // DOM Nodes Selected
 var ggHealth = (0, _jquery2['default'])('.ggHealth');
@@ -82,17 +80,11 @@ var bgHealth = (0, _jquery2['default'])('.bgHealth');
 ggHealth.text(player.health);
 bgHealth.text(hacker.health);
 
-var tenner = function tenner() {
-  player.hit(10);
-};
-
-tenner();
-
 // Setting up ON Events
 (0, _jquery2['default'])('#form').on('submit', function (e) {
 
   //stop page reload
-  e.preventDefault();
+  // e.preventDefault();
 
   // get string from input
   var string = (0, _jquery2['default'])('#hackbox').val();
@@ -100,13 +92,17 @@ tenner();
   //hit hacker with lenght of string
   hacker.hit(string.length);
 
+  (0, _jquery2['default'])('bgHealth').append(hacker.health);
+
+  if (hacker.health <= 0) {
+    bgHealth.text('Defeated');
+    alert('BURNED');
+  }
+
   //clears input
   this.reset();
 });
 
-// if (hacker.health <= 0) {
-//   bgHealth.text('Defeated');
-//   alert('BURNED')
 // } else {
 //   bgHealth.text(hacker.health);
 //   player.hit(10);
