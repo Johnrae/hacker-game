@@ -80,6 +80,16 @@ var bgHealth = (0, _jquery2['default'])('.bgHealth');
 ggHealth.text(player.health);
 bgHealth.text(hacker.health);
 
+alert('Youre being hacked! Start mashing those keys bro.');
+setInterval(function () {
+  player.hit(_underscore2['default'].random(10, 25));
+
+  if (player.health <= 0) {
+    ggHealth.text('Fucked');
+  } else {
+    ggHealth.text(player.health);
+  }
+}, 1000);
 // Setting up ON Events
 (0, _jquery2['default'])('#form').on('submit', function (e) {
 
@@ -98,10 +108,9 @@ bgHealth.text(hacker.health);
     bgHealth.text('Defeated');
     alert('BURNED');
   } else {
-    player.hit(_underscore2['default'].random(10, 25));
     bgHealth.text(hacker.health);
-    ggHealth.text(player.health);
   }
+
   //clears input
   this.reset();
 });

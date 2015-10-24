@@ -21,7 +21,16 @@ let bgHealth = $('.bgHealth');
 ggHealth.text(player.health);
 bgHealth.text(hacker.health);
 
+alert('Youre being hacked! Start mashing those keys bro.')
+    setInterval(function(){
+      player.hit(_.random(10,25));
 
+      if (player.health <= 0){
+        ggHealth.text('Fucked');
+      } else {
+        ggHealth.text(player.health);
+      }
+    },1000);
 // Setting up ON Events
 $('#form').on('submit', function (e) {
 
@@ -40,10 +49,10 @@ $('#form').on('submit', function (e) {
     bgHealth.text('Defeated');
     alert('BURNED');
   } else {
-    player.hit(_.random(10,25));
     bgHealth.text(hacker.health);
-    ggHealth.text(player.health);
   }
+
+
   //clears input
   this.reset();
 
