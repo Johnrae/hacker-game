@@ -84,7 +84,7 @@ bgHealth.text(hacker.health);
 (0, _jquery2['default'])('#form').on('submit', function (e) {
 
   //stop page reload
-  // e.preventDefault();
+  e.preventDefault();
 
   // get string from input
   var string = (0, _jquery2['default'])('#hackbox').val();
@@ -97,20 +97,14 @@ bgHealth.text(hacker.health);
   if (hacker.health <= 0) {
     bgHealth.text('Defeated');
     alert('BURNED');
+  } else {
+    player.hit(_underscore2['default'].random(10, 25));
+    bgHealth.text(hacker.health);
+    ggHealth.text(player.health);
   }
-
   //clears input
   this.reset();
 });
-
-// } else {
-//   bgHealth.text(hacker.health);
-//   player.hit(10);
-//   ggHealth.css('color', 'red');
-//   ggHealth.text(player.health);
-//   setTimeout( function () {
-//     ggHealth.css('color', 'black');
-//   }, 1000);
 
 },{"./badguy":1,"./goodguy":2,"jquery":4,"moment":5,"underscore":6}],4:[function(require,module,exports){
 /*!

@@ -26,7 +26,7 @@ bgHealth.text(hacker.health);
 $('#form').on('submit', function (e) {
 
   //stop page reload
-  // e.preventDefault();
+  e.preventDefault();
 
   // get string from input
   var string = $('#hackbox').val();
@@ -38,20 +38,15 @@ $('#form').on('submit', function (e) {
 
   if (hacker.health <= 0) {
     bgHealth.text('Defeated');
-    alert('BURNED');}
-
+    alert('BURNED');
+  } else {
+    player.hit(_.random(10,25));
+    bgHealth.text(hacker.health);
+    ggHealth.text(player.health);
+  }
   //clears input
   this.reset();
 
   });
 
-
-  // } else {
-  //   bgHealth.text(hacker.health);
-  //   player.hit(10);
-  //   ggHealth.css('color', 'red');
-  //   ggHealth.text(player.health);
-  //   setTimeout( function () {
-  //     ggHealth.css('color', 'black');
-  //   }, 1000);
 
