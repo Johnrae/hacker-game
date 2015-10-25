@@ -50,15 +50,19 @@ $('#form').on('submit', function (e) {
 
   });
 
+$(window).load(function(){
+
 alert("You're being hacked! Better start mashing those keys dude, or youre gonna be TOAST!");
 
-    setInterval(function(){
+let start = setInterval(function(){
       player.hit(_.random(10,25));
       ggHealth.text(player.health);
-
-    },1000);
    
     if (player.health <= 0 && hacker.health >= 0){
      ggHealth.text('Fucked');
      alert('YOU LOSE SUCKER')
+     clearInterval(start)
    } 
+
+    },1000);
+});

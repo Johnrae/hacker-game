@@ -2019,13 +2019,30 @@
   content: ""; }
 
 body {
-  background: #e2ebf3; }
+  background-image: url(../images/back.jpg);
+  background-size: cover;
+  font-family: "VT323";
+  font-size: 20px; }
+
+.wrapper {
+  margin: 250px auto;
+  width: 600px; }
+  .wrapper .top {
+    color: white; }
+    .wrapper .top .goodguy {
+      float: left; }
+    .wrapper .top .badguy {
+      float: right; }
 
 input {
-  height: 400px;
-  width: 400px;
+  height: 50px;
+  width: 600px;
   outline: none;
   background: black;
-  color: green; }
+  color: green;
+  font-size: 30px; }
+
+img {
+  float: right; }
 
 /*# sourceMappingURL=main.css.map */

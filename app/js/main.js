@@ -105,17 +105,21 @@ bgHealth.text(hacker.health);
   this.reset();
 });
 
-alert("You're being hacked! Better start mashing those keys dude, or youre gonna be TOAST!");
+(0, _jquery2['default'])(window).load(function () {
 
-setInterval(function () {
-  player.hit(_underscore2['default'].random(10, 25));
-  ggHealth.text(player.health);
-}, 1000);
+  alert("You're being hacked! Better start mashing those keys dude, or youre gonna be TOAST!");
 
-if (player.health <= 0 && hacker.health >= 0) {
-  ggHealth.text('Fucked');
-  alert('YOU LOSE SUCKER');
-}
+  var start = setInterval(function () {
+    player.hit(_underscore2['default'].random(10, 25));
+    ggHealth.text(player.health);
+
+    if (player.health <= 0 && hacker.health >= 0) {
+      ggHealth.text('Fucked');
+      alert('YOU LOSE SUCKER');
+      clearInterval(start);
+    }
+  }, 1000);
+});
 
 },{"./badguy":1,"./goodguy":2,"jquery":4,"moment":5,"underscore":6}],4:[function(require,module,exports){
 /*!

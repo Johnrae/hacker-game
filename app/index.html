@@ -3,21 +3,29 @@
 <head>
   <title>Hello, World</title>
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet" type="text/css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 
-  <div class="goodguy">
-    <h3> CPU Function <span class="ggHealth"></span>%</h3>
+<div class="wrapper">
+  <div class="top">
+   <div class="goodguy">
+     <h3> My CPU Function <span class="ggHealth"></span>%</h3>
+   </div>
+  
+   <div class="badguy">
+     <h3>Hacker CPU Function <span class="bgHealth"></span>%</h3>
+   </div>
+    <img src="images/bill.gif">
   </div>
 
-  <div class="badguy">
-    <h3>Hacker - <span class="bgHealth"></span></h3>
-  </div>
-  
+  <div class="bottom">
     <form id="form">
       <input type= "text" id="hackbox" autofocus="true" autocomplete="off"> 
     </form>
+  </div>
+</div>
   
   <script src="js/main.js"></script>
 </body>
