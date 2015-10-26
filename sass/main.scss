@@ -6,6 +6,21 @@ body {
   background-size: cover;
   font-family: 'VT323', ;
   font-size: 20px;
+  position: relative;
+}
+
+.keywest{
+  float: left;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.keyright{
+  float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .wrapper{
@@ -20,6 +35,10 @@ body {
       float: right;
     }
   }
+  img{
+    float: right;
+    padding-right: 35px;
+  }
 }
 
 input {
@@ -31,6 +50,7 @@ input {
   font-size: 30px;
 }
 
-img{
-  float: right;
+.under{
+  color: white;
+  text-align: center;
 }

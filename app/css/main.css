@@ -2022,7 +2022,20 @@ body {
   background-image: url(../images/back.jpg);
   background-size: cover;
   font-family: "VT323";
-  font-size: 20px; }
+  font-size: 20px;
+  position: relative; }
+
+.keywest {
+  float: left;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.keyright {
+  float: right;
+  position: absolute;
+  top: 0;
+  right: 0; }
 
 .wrapper {
   margin: 250px auto;
@@ -2033,6 +2046,9 @@ body {
       float: left; }
     .wrapper .top .badguy {
       float: right; }
+  .wrapper img {
+    float: right;
+    padding-right: 35px; }
 
 input {
   height: 50px;
@@ -2042,7 +2058,8 @@ input {
   color: green;
   font-size: 30px; }
 
-img {
-  float: right; }
+.under {
+  color: white;
+  text-align: center; }
 
 /*# sourceMappingURL=main.css.map */

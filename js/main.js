@@ -22,6 +22,30 @@ ggHealth.text(player.health);
 bgHealth.text(hacker.health);
 
 
+$(window).load(function(){
+
+alert("You're being hacked! Better start mashing those keys dude, or youre gonna be TOAST!");
+
+let start = setInterval(function(){
+      player.hit(_.random(10,30));
+      ggHealth.text(player.health);
+   
+    if (player.health <= 0 && hacker.health >= 0){
+     ggHealth.text('is Fucked');
+     alert('YOU LOSE SUCKER')
+     clearInterval(start)
+   } else if (hacker.health <= 0) {
+    bgHealth.text('0');
+    alert('Great job, you won!');
+    clearInterval(start)
+  } else {
+    bgHealth.text(hacker.health);
+  }
+
+
+
+    },1000);
+});
 
 // Setting up ON Events
 $('#form').on('submit', function (e) {
@@ -35,34 +59,9 @@ $('#form').on('submit', function (e) {
   //hit hacker with lenght of string
   hacker.hit(string.length);
 
-  $('bgHealth').append(hacker.health);
-
-  if (hacker.health <= 0) {
-    bgHealth.text('0');
-    alert('You got them, for now...');
-  } else {
-    bgHealth.text(hacker.health);
-  }
-
+  $('bgHealth').text(hacker.health);
 
   //clears input
   this.reset();
 
   });
-
-$(window).load(function(){
-
-alert("You're being hacked! Better start mashing those keys dude, or youre gonna be TOAST!");
-
-let start = setInterval(function(){
-      player.hit(_.random(10,25));
-      ggHealth.text(player.health);
-   
-    if (player.health <= 0 && hacker.health >= 0){
-     ggHealth.text('Fucked');
-     alert('YOU LOSE SUCKER')
-     clearInterval(start)
-   } 
-
-    },1000);
-});
